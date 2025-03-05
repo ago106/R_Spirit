@@ -19,13 +19,13 @@ local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "WatermarkGui"
 screenGui.Parent = playerGui
 screenGui.ResetOnSpawn = false
-screenGui.DisplayOrder = 10 -- Убедимся, что watermark поверх всех других GUI
+screenGui.DisplayOrder = 10
 
 local frame = Instance.new("Frame", screenGui)
-frame.Position = UDim2.new(1, -250, 0, 15) -- Правый верхний угол
+frame.Position = UDim2.new(1, -250, 0, 15)
 frame.Size = UDim2.new(0, 220, 0, 32)
 frame.BackgroundTransparency = 0.05 -- Еще меньше прозрачности (еще темнее фон)
-frame.BackgroundColor3 = Color3.new(0.03, 0.03, 0.03) -- Очень темный фон
+frame.BackgroundColor3 = Color3.new(0.03, 0.03, 0.03)
 frame.BorderSizePixel = 0
 frame.Active = true
 frame.Draggable = true
@@ -51,7 +51,7 @@ textLabel.RichText = true
 
 local lastFpsUpdate = 0
 local fps, ping = 0, 0
-local startTime = tick() -- Время запуска скрипта
+local startTime = tick()
 
 local function formatTime(seconds)
     local hours = math.floor(seconds / 3600)
@@ -98,7 +98,7 @@ local function updateText()
     textLabel.Text = newText
 
     local textSize = TextService:GetTextSize(textLabel.ContentText, textLabel.TextSize, textLabel.Font, Vector2.new(math.huge, textLabel.AbsoluteSize.Y))
-    local frameWidth = textSize.X + 20 -- Убираем лишнее место, подстраивая ширину под текст
+    local frameWidth = textSize.X + 20
 
     local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
     local tweenSize = TweenService:Create(frame, tweenInfo, {Size = UDim2.new(0, frameWidth, 0, 32)})
